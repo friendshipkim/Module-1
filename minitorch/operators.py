@@ -12,22 +12,22 @@ import math
 
 def mul(x, y):
     ":math:`f(x, y) = x * y`"
-    return x * y
+    return float(x * y)
 
 
 def id(x):
     ":math:`f(x) = x`"
-    return x
+    return float(x)
 
 
 def add(x, y):
     ":math:`f(x, y) = x + y`"
-    return x + y
+    return float(x + y)
 
 
 def neg(x):
     ":math:`f(x) = -x`"
-    return -x
+    return float(-x)
 
 
 def lt(x, y):
