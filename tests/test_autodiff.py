@@ -35,6 +35,21 @@ class Function2(minitorch.ScalarFunction):
 
 # Checks for the chain rule function.
 
+@pytest.mark.task1_3
+def test_chain_rule0():
+    "Added: Check when cls.backward return a value - wrap_tuple() is necessary in chain_rule"
+    var = minitorch.Scalar(10)
+
+    ctx = minitorch.Context()
+    minitorch.Exp.forward(ctx, var.data)
+
+    back = minitorch.Exp.chain_rule(ctx=ctx, inputs=[var], d_output=5)
+    back = list(back)
+    assert len(back) == 1
+    variable, deriv = back[0]
+    assert variable.name == var.name
+    assert deriv == minitorch.operators.exp(10) * 5
+
 
 @pytest.mark.task1_3
 def test_chain_rule1():
