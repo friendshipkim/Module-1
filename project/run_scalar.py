@@ -11,7 +11,7 @@ class Network(minitorch.Module):
         super().__init__()
         self.layer1 = Linear(2, hidden_layers)  # input dimension is 2
         self.layer2 = Linear(hidden_layers, hidden_layers)
-        self.layer3 = Linear(hidden_layers, 1)
+        self.layer3 = Linear(hidden_layers, 1)  # output dimension is 1
 
     def forward(self, x):
         middle = [h.relu() for h in self.layer1.forward(x)]
