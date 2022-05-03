@@ -306,7 +306,6 @@ def topological_sort(variable):
             return
         if not var.is_leaf():
             for child_var in var.history.inputs:
-                # print("child_var", child_var)
                 if not is_constant(child_var):
                     visit(child_var)
         var_list.insert(0, var)  # back node comes first
