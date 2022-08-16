@@ -22,8 +22,8 @@ def central_difference(f, *vals, arg=0, epsilon=1e-6):
     Returns:
         float : An approximation of :math:`f'_i(x_0, \ldots, x_{n-1})`
     """
-    pos_side = (*vals[:arg], vals[arg] + epsilon, *vals[arg+1:])
-    neg_side = (*vals[:arg], vals[arg] - epsilon, *vals[arg+1:])
+    pos_side = (*vals[:arg], vals[arg] + epsilon, *vals[arg + 1 :])
+    neg_side = (*vals[:arg], vals[arg] - epsilon, *vals[arg + 1 :])
     return (f(*pos_side) - f(*neg_side)) / (2 * epsilon)
 
 
@@ -227,7 +227,7 @@ class Sigmoid(ScalarFunction):
     def backward(ctx, d_output):
         a = ctx.saved_values
         sig_a = operators.sigmoid(a)
-        return sig_a * (1-sig_a) * d_output
+        return sig_a * (1 - sig_a) * d_output
 
 
 class ReLU(ScalarFunction):
