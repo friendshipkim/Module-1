@@ -42,8 +42,12 @@ class Module:
         named_param_list = list(self._parameters.items())
         for (name, module) in self._modules.items():
             prefix = name
-            named_param_list.extend([(prefix + "." + child_name, child_module)
-                                     for (child_name, child_module) in module.named_parameters()])
+            named_param_list.extend(
+                [
+                    (prefix + "." + child_name, child_module)
+                    for (child_name, child_module) in module.named_parameters()
+                ]
+            )
         return named_param_list
 
     def parameters(self):

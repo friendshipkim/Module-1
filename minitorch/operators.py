@@ -47,7 +47,7 @@ def max(x, y):
 
 def is_close(x, y):
     ":math:`f(x) = |x - y| < 1e-2` "
-    return abs(x-y) < 1e-2
+    return abs(x - y) < 1e-2
 
 
 def sigmoid(x):
@@ -192,11 +192,13 @@ def reduce(fn, start):
         :math:`x_1 \ldots x_n` and computes the reduction :math:`fn(x_3, fn(x_2,
         fn(x_1, x_0)))`
     """
+
     def _reduce(ls):
         out = start
         for i in ls:
             out = fn(i, out)
         return out
+
     return _reduce
 
 
